@@ -1,16 +1,51 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "website",
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "I’m feeling pretty good about my first few weeks of orentation. This blog post I’m writing right now actually constitutes a part of my last assignment that I’m working on for the week. What I’m still most anxious about are the quizzes to come next week, though being anxious about exams is nothing new for me.\nThe program has me thinking in a lot of new ways, especially as it concerns Python. In astronomy, my data processing and cleaning was generally a one-time affair, done for the purposes of a single assignment before moving on to the next - having to more seriously consider things such as processing speed, replicability and documentation is a change of pace from what I’m used to, though I’m keeping up.\nI’ve met a lot of good people across my classes and labs, some with more experience than me and some with less - it was very interesting to me to see the proportion of people who are returning to school after working for long periods. Though I’m still pretty burnt out from the end of my undergrad, I figure it’ll be much better for me to strike while the iron is still hot rather than to take a break and return to studies later in life. I’m looking forwards to the program as a whole!\n\n\n\nCloudy skies from the eveing of my orientation."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nEverett Rendon\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "I was born and raised in Los Angeles, California. In my high school years, my family moved for my father’s work to Seattle in Washington State. It was there I discovered my love for the Pacific Northwest - after a lifetime in the California sun, I found I loved the rain and the cold especially. Determined to never leave, I began international study at the University of British Columbia with the undergraduate program in Astronomy. With the completion of my degree, I decided to enter into UBC’s Master of Data Science program as my last educational stop before hopefully entering career work in Vancouver. \n\n\n\nA photo of my cat, Princess!"
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I was born and raised in Los Angeles, California. In my high school years, my family moved for my father’s work to Seattle in Washington State. It was there I discovered my love for the Pacific Northwest - after a lifetime in the California sun, I found I loved the rain and the cold especially. Determined to never leave, I began international study at the University of British Columbia with the undergraduate program in Astronomy. With the completion of my degree, I decided to enter into UBC’s Master of Data Science program as my last educational stop before hopefully entering career work in Vancouver. \n\n\n\nA photo of my cat, Princess!"
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why Data Science?",
+    "text": "Why Data Science?\nDuring my time in my astronomy program, I came to realize just how much data astronomy uses - gigabytes of raw data for even seemingly simple observations using UBC’s comparatively small telescopes. I was taught the ways to navigate it for our purposes within the astronomy program, but it got me curious about data as a whole. I was also influenced by the rise of AI - in the time between beginning and ending my program, I saw it go from a rough and flawed novelty to being the next big thing that has the potential to transform science - and at the root of AI is data. I was determined to catch the rising wave that AI provided, and so I opted to enter into UBC’s data science program to better prepare me for data not only within the field of astronomy, but as a whole."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of Data Science…",
+    "text": "Outside of Data Science…\nFor lack of better phrasing, I am a huge nerd. I love passtimes that put my mind to work - board games, trading-card games, video games, and in particular wargames. My time at UBC gave me a great opportunity to connect with people like me through clubs and events, and I spent a huge amount of my undergrad free time enjoying my hobbies with others. If it makes me think, I’ll enjoy it - especially so with friends."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Everett Rendon",
+    "section": "",
+    "text": "DSCI 521 : Computing Platforms for Data Science, Milestone 1\nEverett Rendon I was born and raised in Los Angeles, California in the United States. I am an international student at the University of British Columbia in the Master of Data Science program. Prior to this, I was an undergraduate student at UBC pursuing a Bachelor’s of Science in Astronomy, and graduated in May of 2026. I’m hoping that this program will prepare me for the more data-intensive side of astronomical work, and hope to remain in British Columbia with the program’s completion.\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]
