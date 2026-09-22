@@ -1,0 +1,71 @@
+---
+title: "Gapminder Data Analysis in Python"
+author: "Everett Rendon"
+date: 2026-09-21
+---
+Data: [Gapminder GDP and Life Expectancy](https://www.gapminder.org/data/), compiled from the World Bank, Maddison Project Database, IHME, and UN Population Division.
+Creative Commons Attribution 4.0 International license (CC-BY 4.0)
+
+I'll be examining a selection of countries within the Gapminder dataset to investigate the relationship between GDP and life expectancy over time. To begin, I'll import the necessary libraries and relevant data for these nations: the United States of America, Japan, China, Germany, the United Kingdom, and Vietnam.
+
+```{python}
+#| message: false
+#| warning: false
+import numpy as np
+import plotly.express as px
+import matplotlib.pyplot as plt
+
+df = px.data.gapminder()
+
+america_data=df[df["iso_alpha"] == "USA"]
+japan_data=df[df["iso_alpha"] == "JPN"]
+china_data=df[df["iso_alpha"] == "CHN"]
+germany_data=df[df["iso_alpha"] == "DEU"]
+uk_data=df[df["iso_alpha"] == "GBR"]
+vietnam_data=df[df["iso_alpha"] == "VNM"]
+
+print(vietnam_data)
+```
+
+From this example we can see the all the lines of Vietnam's data. Each nation's data will follow this format, so we can put the sets into a list and iterate over it for future manipulations. 
+
+Utilizing Matplotlib and some for-loops, we can visualize the effect that GDP has had on life expectancy for each nation.
+
+```{python}
+#| label: life-exp-gdp-chart
+#| fig-cap: "National gross domestic product per capita vs. Life Expectancy."
+data_set=[america_data, japan_data, china_data, germany_data, uk_data, vietnam_data]
+for i in data_set:
+    if i.empty:
+        continue
+    country = i['country'].iloc[0]
+
+    plt.scatter(i['gdpPercap'], i['lifeExp'], label=country)
+    plt.plot(i['gdpPercap'], i['lifeExp'])
+
+plt.xlabel('GDP per capita')
+plt.ylabel('Life Expectancy')
+plt.legend()
+plt.title("GDP per capita vs. Life Expectancy")
+plt.grid()
+plt.show()
+```
+
+By plotting each on the same chart, we can see the relationship between rising GDP per capita and a rising life expectancy. We can also note instances of the unequal relatioship between the two - nations like Vietnam and China experienced an enormous rise in life expectancy despite the GDP per capita only rising minorly, whereas the other nations saw more dramatic increases of GDP with smaller gains in life-expectancy.
+
+We can also use our sample to calculate the averages of each statistic for this subset of nations.
+
+```{python}
+for i in data_set:
+    if i.empty:
+        continue
+    country = i['country'].iloc[0]
+    avg_life_exp = i['lifeExp'].mean()
+    avg_gdppc = i['gdpPercap'].mean()
+
+    print(f"{country.title()} has an average mean GDP per capita of {avg_gdppc:.2f} and a mean life expectancy of {avg_life_exp:.2f} years.")
+
+```
+
+We can see here the averages of each statistic for each nation across the subset. We find that the means for the life expectancy and GDP for China and Vietnam are significantly lower than the other nations in the subset. However, from the graph we can also see that 'success' within the dataset is more biased towards some nations - for example, there is no historical data for the period of time when, say, Germany would have had a significantly lower life expectancy. It cuts off at a point that places its worst value near China's best, whereas a more complete historical set would likely have all the nations on the top-right's mean values for GPD per cap. and life expectancy closer to those on the far left.
+

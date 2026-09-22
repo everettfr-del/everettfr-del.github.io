@@ -1,0 +1,85 @@
+---
+title: "Gapminder Data Analysis in R"
+author: "Everett Rendon"
+date: 2026-09-21
+---
+
+Data: [Gapminder GDP and Life Expectancy](https://www.gapminder.org/data/), compiled from the World Bank, Maddison Project Database, IHME, and UN Population Division.
+Creative Commons Attribution 4.0 International license (CC-BY 4.0)
+
+I'll be examining a selection of countries within the Gapminder dataset to investigate the relationship between GDP and life expectancy over time. To begin, I'll load the necessary libraries and relevant data for these nations: the United States of America, Japan, China, Germany, the United Kingdom, and Vietnam.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(gapminder)
+america_data <- gapminder |>
+    filter(country == "United States")
+japan_data <- gapminder |>
+    filter(country == "Japan")
+china_data <- gapminder |>
+    filter(country == "China")
+germany_data <- gapminder |>
+    filter(country == "Germany")
+uk_data <- gapminder |>
+    filter(country == "United Kingdom")
+vietnam_data <- gapminder |>
+    filter(country == "Vietnam")
+head(vietnam_data)
+```
+
+From this example we can see the first couple lines of Vietnam's data. Each nation's data will follow this format, so we can bind the rows for future manipulations.
+
+Utilizing ggplot from the Tidyverse, we can visualize the effect that GDP has had on life expectancy for each nation.
+
+```{r}
+#| label: life-exp-gdp-chart
+#| fig-cap: "National gross domestic product per capita vs. Life Expectancy."
+data_set <- bind_rows(
+    america_data,
+    japan_data,
+    china_data,
+    germany_data,
+    uk_data,
+    vietnam_data)
+
+ggplot(data_set,
+    aes(x = gdpPercap,
+        y = lifeExp,
+        colour = country,
+        group = country)
+) +
+    geom_point() +
+    geom_line() +
+    labs(x = "GDP per capita",
+        y = "Life Expectancy",
+        colour = "Country",
+        title = "GDP per capita vs. Life Expectancy")
+```
+
+By plotting each on the same chart, we can see the relationship between rising GDP per capita and a rising life expectancy. We can also note instances of the unequal relatioship between the two - nations like Vietnam and China experienced an enormous rise in life expectancy despite the GDP per capita only rising minorly, whereas the other nations saw more dramatic increases of GDP with smaller gains in life-expectancy.
+
+We can also use our sample to calculate the averages of each statistic for this subset of nations.
+
+```{r}
+data_set <- list(
+    america_data,
+    japan_data,
+    china_data,
+    germany_data,
+    uk_data,
+    vietnam_data
+)
+
+map(data_set, function(i) {country <- i$country[1]
+    avg_life_exp <- mean(i$lifeExp)
+    avg_gdppc <- mean(i$gdpPercap)
+    cat(sprintf("%s has an average mean GDP per capita of %.2f and a mean life expectancy of %.2f years.\n",
+            country,
+            avg_gdppc,
+            avg_life_exp))})
+
+```
+
+We can see here the averages of each statistic for each nation across the subset. We find that the means for the life expectancy and GDP for China and Vietnam are significantly lower than the other nations in the subset. However, from the graph we can also see that 'success' within the dataset is more biased towards some nations - for example, there is no historical data for the period of time when, say, Germany would have had a significantly lower life expectancy. It cuts off at a point that places its worst value near China's best, whereas a more complete historical set would likely have all the nations on the top-right's mean values for GPD per cap. and life expectancy closer to those on the far left.
