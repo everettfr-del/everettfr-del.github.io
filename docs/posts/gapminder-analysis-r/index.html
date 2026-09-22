@@ -266,13 +266,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    vietnam_data</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(data_set, <span class="cf">function</span>(i) {country <span class="ot">&lt;-</span> i<span class="sc">$</span>country[<span class="dv">1</span>]</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    avg_life_exp <span class="ot">&lt;-</span> <span class="fu">mean</span>(i<span class="sc">$</span>lifeExp)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    avg_gdppc <span class="ot">&lt;-</span> <span class="fu">mean</span>(i<span class="sc">$</span>gdpPercap)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"%s has an average mean GDP per capita of %.2f and a mean life expectancy of %.2f years.</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            country,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            avg_gdppc,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            avg_life_exp))})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">walk</span>(data_set, <span class="cf">function</span>(i) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    country <span class="ot">&lt;-</span> i<span class="sc">$</span>country[<span class="dv">1</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    avg_life_exp <span class="ot">&lt;-</span> <span class="fu">mean</span>(i<span class="sc">$</span>lifeExp)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    avg_gdppc <span class="ot">&lt;-</span> <span class="fu">mean</span>(i<span class="sc">$</span>gdpPercap)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"%s has an average mean GDP per capita of %.2f and a mean life expectancy of %.2f years.</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        country,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        avg_gdppc,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        avg_life_exp))})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>United States has an average mean GDP per capita of 26261.15 and a mean life expectancy of 73.48 years.
 Japan has an average mean GDP per capita of 17750.87 and a mean life expectancy of 74.83 years.
@@ -280,25 +283,6 @@ China has an average mean GDP per capita of 1488.31 and a mean life expectancy o
 Germany has an average mean GDP per capita of 20556.68 and a mean life expectancy of 73.44 years.
 United Kingdom has an average mean GDP per capita of 19380.47 and a mean life expectancy of 73.92 years.
 Vietnam has an average mean GDP per capita of 1017.71 and a mean life expectancy of 57.48 years.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-NULL
-
-[[2]]
-NULL
-
-[[3]]
-NULL
-
-[[4]]
-NULL
-
-[[5]]
-NULL
-
-[[6]]
-NULL</code></pre>
 </div>
 </div>
 <p>We can see here the averages of each statistic for each nation across the subset. We find that the means for the life expectancy and GDP for China and Vietnam are significantly lower than the other nations in the subset. However, from the graph we can also see that ‘success’ within the dataset is more biased towards some nations - for example, there is no historical data for the period of time when, say, Germany would have had a significantly lower life expectancy. It cuts off at a point that places its worst value near China’s best, whereas a more complete historical set would likely have all the nations on the top-right’s mean values for GPD per cap. and life expectancy closer to those on the far left.</p>

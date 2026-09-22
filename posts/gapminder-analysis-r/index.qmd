@@ -72,13 +72,16 @@ data_set <- list(
     vietnam_data
 )
 
-map(data_set, function(i) {country <- i$country[1]
+walk(data_set, function(i) {
+    country <- i$country[1]
     avg_life_exp <- mean(i$lifeExp)
     avg_gdppc <- mean(i$gdpPercap)
-    cat(sprintf("%s has an average mean GDP per capita of %.2f and a mean life expectancy of %.2f years.\n",
-            country,
-            avg_gdppc,
-            avg_life_exp))})
+
+    cat(sprintf(
+        "%s has an average mean GDP per capita of %.2f and a mean life expectancy of %.2f years.\n",
+        country,
+        avg_gdppc,
+        avg_life_exp))})
 
 ```
 

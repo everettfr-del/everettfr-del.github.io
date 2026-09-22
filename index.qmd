@@ -6,7 +6,3 @@ about:
 ---
 
 I was born and raised in Los Angeles, California in the United States. I am an international student at the University of British Columbia in the Master of Data Science program. Prior to this, I was an undergraduate student at UBC pursuing a Bachelor's of Science in Astronomy, and graduated in May of 2026. I'm hoping that this program will prepare me for the more data-intensive side of astronomical work, and hope to remain in British Columbia with the program's completion.
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
