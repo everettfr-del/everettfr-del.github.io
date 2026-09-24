@@ -1,4 +1,4 @@
-# README : myrepositoryhere
+# README : everettfr-del.github.io
 
 ## What this repository is
 This is a repository containing my personal site detailing my master's program work and some data analysis within blog posts. 
@@ -90,11 +90,11 @@ uv run python --version
 ## How to build it
 Firstly, you'll need to clone this repository to your local machine. Open up your terminal and navigate to the directory that you'd like the cloned repository to appear in - [see here for help on navigating using the command console.](https://datacarpentry.github.io/shell-economics/02-the-filesystem/index.html). Once in the desired directory, type the following into your terminal:
 ```bash
-git clone https://github.com/me/myrepositoryhere
+git clone https://github.com/everettfr-del/everettfr-del.github.io
 ```
 Then, enter the cloned repository by typing:
 ```bash
-cd myrepositoryhere
+cd everettfr-del.github.io/
 ```
 From this point forward, the directory you are currently in will be referred to as the **root** directory. All terminal commands will be run from here unless specified otherwise.
 
